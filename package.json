@@ -1,41 +1,52 @@
 {
-  "name": "udacity_nodejs",
+  "name": "image-processing-api",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "start:dev": "ts-node src/index.ts",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "test": "jest"
+    "copy-assets": "ts-node src/utils/copyAssets",
+    "build": "npx tsc && npm run copy-assets",
+    "start": "nodemon src/app.ts",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedeval/image-processing-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedeval/image-processing-api/issues"
+  },
+  "homepage": "https://github.com/fedeval/image-processing-api#readme",
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/jest": "^27.5.2",
-    "@types/multer": "^1.4.11",
-    "@types/node": "^16.18.101",
-    "@types/supertest": "^6.0.2",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.14.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^27.5.1",
-    "prettier": "^2.8.8",
-    "supertest": "^7.0.0",
-    "ts-jest": "^27.1.5",
-    "ts-node": "^10.9.2",
-    "typescript": "^4.9.5"
+    "@types/ejs": "^3.0.6",
+    "@types/express": "^4.17.11",
+    "@types/jasmine": "^3.6.10",
+    "@types/node": "^15.0.3",
+    "@types/sharp": "^0.28.1",
+    "@types/shelljs": "^0.8.8",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "shelljs": "^0.8.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "formidable": "^3.5.1",
-    "multer": "^1.4.5-lts.1",
-    "sharp": "^0.33.4"
-  },
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "jasmine": "^3.7.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "sharp": "^0.28.2",
+    "supertest": "^6.1.3"
+  }
 }
